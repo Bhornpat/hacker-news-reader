@@ -1,14 +1,16 @@
 import { fetchOpenGraphMeta } from '@/lib/fetchOGMeta'
-import { fallbackMetaDescription } from '@/lib/fallbackMetaDescription'
+import { getStory } from '@/lib/getStory'
+import use from 'react'
 
-interface Story {
-  id: number
-  title: string
-  by: string
-  score: number
-  url?: string
-  kids?: number[]
- }
+//
+// interface Story {
+//    id: number
+//    title: string
+//    by: string
+//    score: number
+//    url?: string  
+//    kids?: number[]
+//   }
 
 interface Comment {
   id: number
@@ -16,11 +18,17 @@ interface Comment {
   by: string
   }
 
-
-async function getStory(id: string): Promise<Story> {
-  const res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
-  return await res.json()
-}
+//   interface PageProps {
+//   params: {
+//     id: string
+//   }
+// }
+//
+//
+// async function getStory(id: string): Promise<Story> {
+//   const res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+//   return await res.json()
+// }
 
 async function getComments(ids: number[] = []): Promise<Comment[]> {
   const commentPromises = ids.map(async (id) => {
@@ -36,12 +44,11 @@ async function getComments(ids: number[] = []): Promise<Comment[]> {
 
 export const dynamicParams = true
 
-export default async function StoryPage({ params }: { params: { id: string } }) {
- const id = Number(params.id)
+export default async function StoryPage({params}: {params: Promise<{ id: string }>}) { 
+ const { id } = await params;
   const story = await getStory(id)
   const comments = (await getComments(story.kids)).slice(0, 6)
   const ogMeta = story.url ? await fetchOpenGraphMeta(story.url) : null
-
   const metaDesc = ogMeta?.description?.trim() || 'No description available'
 
   console.log('[DEBUG] ogMeta.description:', ogMeta?.description)

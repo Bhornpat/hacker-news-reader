@@ -1,5 +1,17 @@
 import db from '@/lib/db'
 
+
+interface Story {
+   id: number
+   title: string
+   by: string
+   score: number
+   url?: string  
+   kids?: number[]
+  }
+
+
+
 export async function getStory(id: string): Promise<Story> {
   const existing = db.prepare('SELECT * FROM stories WHERE id = ?').get(id)
   if (existing) return existing as Story
@@ -25,7 +37,6 @@ export async function getStory(id: string): Promise<Story> {
       title: 'Story not available',
       by: 'N/A',
       score: 0,
-      descendants: 0,
       url: ''
     }
   }
