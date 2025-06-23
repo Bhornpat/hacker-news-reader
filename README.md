@@ -1,7 +1,9 @@
 ## Hacker News Top 10 Stories
----
+----
 
 This is a Hacker News web app built with **Next.js**, **TypeScript**, **Tailwind CSS**, and **SQLite (via better-sqlite3)**. It fetches the top 10 stories from the Hacker News API, stores them locally, and displays them in a clean, and deploy to Vercal.
+
+----
 
 ### Setup Instructions
 
@@ -23,6 +25,7 @@ npm install
 ```
 npm run dev
 ```
+----
 
 ### Local Database
 
