@@ -55,7 +55,7 @@ export default async function StoryPage({params}: {params: Promise<{ id: string 
 
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-6 leading-relaxed">
-      <h1 className="text-3xl md:text-4xl mt-4 font-bold text-white">{story.title}</h1>
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-extrabold text-white pt-2 tracking-tight ">{story.title}</h1>
       <p className="text-sm text-gray-400 mt-1">By: {story.by} | Score: {story.score}</p>
 
 
