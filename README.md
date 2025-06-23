@@ -30,7 +30,7 @@ npm run dev
 ### Local Database
 
 - The app uses better-sqlite3 to cache stories in a local stories.db file
-- The database is initialized on first load with stories and comments tables
+- The database is initialized on first load with stories tables
 - Duplicate requests for the same story ID will return cached results
 
 
