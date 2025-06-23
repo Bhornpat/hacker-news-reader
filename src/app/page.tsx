@@ -36,11 +36,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-center items-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
-      <h1 className="text-4xl  font-extrabold text-white pt-2 tracking-tight">The top 10 stories from Hacker News</h1><br />
-      <ul className="space-y-4">
+      <h1 className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-extrabold text-white pt-2  text-center">The top 10 stories from Hacker News</h1><br />
+      <ul className="space-y-4 px-2">
         {stories.map((story) => (
-          <li key={story.id} className="block rounded-lg bg-gray-900 p-4 hover:bg-gray-800 transition border border-gray-700 shadow hover:shadow-lg">
-            <Link href={`/story/${story.id}`} className="text-lg sm:text-xl font-semibold text-blue-400 hover:underline mb-2">
+          <li key={story.id} className="block w-full max-w-2xl mx-auto rounded-lg bg-gray-900 p-4 hover:bg-gray-800 transition border border-gray-700 shadow hover:shadow-lg">
+            <Link href={`/story/${story.id}`} className="text-md sm:text-xl font-semibold text-blue-400 hover:underline mb-2">
               {story.title}
             </Link>
             <div className="text-sm text-gray-500">
