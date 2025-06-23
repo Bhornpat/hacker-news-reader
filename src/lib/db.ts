@@ -15,14 +15,4 @@ db.prepare(`
 `).run()
 
 
-db.prepare(`
-  CREATE TABLE IF NOT EXISTS comments (
-    id INTEGER PRIMARY KEY,
-    story_id INTEGER,
-    text TEXT,
-    by TEXT,
-    time INTEGER
-  )
-`).run()
-
 export default db
