@@ -2,14 +2,16 @@
 
 import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 export default function LayoutClient({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   useEffect(() => {
     setLoading(true)
-    const timeout = setTimeout(() => setLoading(false), 300) // simulate loading
+    const timeout = setTimeout(() => setLoading(false), 400) // simulate loading
     return () => clearTimeout(timeout)
   }, [pathname])
 
