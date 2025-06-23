@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
+
 interface Story {
   id: number
   title: string
@@ -34,12 +35,12 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">The top 10 stories from Hacker News</h1>
+    <div className="flex flex-col justify-center items-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+      <h1 className="text-4xl  font-extrabold text-white pt-2 tracking-tight">The top 10 stories from Hacker News</h1><br />
       <ul className="space-y-4">
         {stories.map((story) => (
-          <li key={story.id} className="border-b pb-2">
-            <Link href={`/story/${story.id}`} className="text-blue-600 font-semibold hover:underline">
+          <li key={story.id} className="block rounded-lg bg-gray-900 p-4 hover:bg-gray-800 transition border border-gray-700 shadow hover:shadow-lg">
+            <Link href={`/story/${story.id}`} className="text-lg sm:text-xl font-semibold text-blue-400 hover:underline mb-2">
               {story.title}
             </Link>
             <div className="text-sm text-gray-500">

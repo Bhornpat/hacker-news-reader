@@ -1,4 +1,3 @@
-
 import { fetchOpenGraphMeta } from '@/lib/fetchOGMeta'
 import { fallbackMetaDescription } from '@/lib/fallbackMetaDescription'
 
@@ -9,13 +8,13 @@ interface Story {
   score: number
   url?: string
   kids?: number[]
-}
+ }
 
 interface Comment {
   id: number
   text: string
   by: string
-}
+  }
 
 
 async function getStory(id: string): Promise<Story> {
@@ -48,13 +47,13 @@ export default async function StoryPage({ params }: { params: { id: string } }) 
   console.log('[DEBUG] ogMeta.description:', ogMeta?.description)
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-bold mt-2 mb-4">{story.title}</h1>
-      <p className="text-gray-500">By: {story.by} | Score: {story.score}</p>
+    <div className="max-w-4xl mx-auto p-6 space-y-6 leading-relaxed">
+      <h1 className="text-3xl md:text-4xl mt-4 font-bold text-white">{story.title}</h1>
+      <p className="text-sm text-gray-400 mt-1">By: {story.by} | Score: {story.score}</p>
 
 
       <div className="bg-gray-900 p-4 rounded mt-2 mb-4">
-   <p className="text-gray-500 italic text-gray-500 text-sm">{metaDesc}</p>  
+   <p className="text-gray-500 italic text-gray-500 text-lg">{metaDesc}</p>  
 
      </div>
 
@@ -64,7 +63,7 @@ export default async function StoryPage({ params }: { params: { id: string } }) 
         href={story.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-500  underline block my-2 text-lg font-semibold"
+        className="inline-block mt-2 px-3 py-1 border border-blue-500 text-blue-500 rounded-md text-lg font-semibold hover:bg-blue-500 hover:text-black transition-colors"
         >
            Read the full story here
         </a>
@@ -74,10 +73,10 @@ export default async function StoryPage({ params }: { params: { id: string } }) 
 
       <hr className="my-4" />
 
-      <h2 className="text-xl font-semibold mb-2">Top Comments</h2>
+      <h2 className="text-lg font-semibold mb-2">Top Comments</h2>
       <ul className="space-y-2">
         {comments.map((c) => (
-          <li key={c.id} className="bg-gray-100 p-2 rounded">
+          <li key={c.id} className="bg-gray-200 p-2 rounded">
           <div
   className="text-sm text-gray-700"
   suppressHydrationWarning
