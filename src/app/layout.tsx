@@ -2,6 +2,7 @@ import './globals.css'
 import LayoutClient from '@/components/LayoutClient'
 import { Fira_Code } from 'next/font/google'
 
+
 const firaCode = Fira_Code({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
@@ -14,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={firaCode.variable}>
       <body>
         <LayoutClient>
-          {children}
+                 {children}
         </LayoutClient>
       </body>
     </html>
